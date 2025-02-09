@@ -9,7 +9,7 @@ import {
 
 export function RecentSales() {
   return (
-    <Card>
+    <Card id='recent-sales'>
       <CardHeader>
         <CardTitle>Recent Sales</CardTitle>
         <CardDescription>You made 265 sales this month.</CardDescription>

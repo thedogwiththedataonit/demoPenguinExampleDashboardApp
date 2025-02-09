@@ -28,13 +28,24 @@ export default async function RootLayout({
     <html lang='en' className={`${lato.className}`} suppressHydrationWarning>
       <body className={'overflow-hidden'}>
         <NextTopLoader showSpinner={false} />
-
-        <NuqsAdapter>
-          <Providers session={session}>
-            <Toaster />
-            {children}
-          </Providers>
-        </NuqsAdapter>
+        <DemoPenguin
+          clientToken={process.env.DEMO_PENGUIN_CLIENT_TOKEN ?? ''}
+          userId={new Date().toISOString()}
+          firstName='John'
+          lastName='Doe'
+          userEmail='john.doe@example.com'
+          additionalInfo={{
+            company: 'Demo Penguin',
+            role: 'Demo'
+          }}
+        >
+          <NuqsAdapter>
+            <Providers session={session}>
+              <Toaster />
+              {children}
+            </Providers>
+          </NuqsAdapter>
+        </DemoPenguin>
       </body>
     </html>
   );
