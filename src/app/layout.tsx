@@ -6,7 +6,7 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 import { Lato } from 'next/font/google';
 import NextTopLoader from 'nextjs-toploader';
 import './globals.css';
-
+import { DemoPenguin } from 'demo-penguin';
 export const metadata: Metadata = {
   title: 'Next Shadcn',
   description: 'Basic dashboard with Next.js and Shadcn'
@@ -28,6 +28,7 @@ export default async function RootLayout({
     <html lang='en' className={`${lato.className}`} suppressHydrationWarning>
       <body className={'overflow-hidden'}>
         <NextTopLoader showSpinner={false} />
+
         <NuqsAdapter>
           <Providers session={session}>
             <Toaster />
