@@ -29,22 +29,26 @@ export default async function RootLayout({
       <body className={'overflow-hidden'}>
         <NextTopLoader showSpinner={false} />
         <DemoPenguin
-          clientToken={process.env.DEMO_PENGUIN_CLIENT_TOKEN ?? ''}
-          userId={new Date().toISOString()}
-          firstName='John'
-          lastName='Doe'
-          userEmail='john.doe@example.com'
-          additionalInfo={{
+          clientToken={
+            '1e984b980adbc9179a8ec1bfc266ba5119170c0922e7cecec8d35b08bf3470ff'
+          }
+          userInfo={{
+            userId: 'dashboard-' + new Date().toISOString(),
+            userFirstName: 'John',
+            userLastName: 'Doe',
+            userEmail: 'john.doe@example.com',
+            userType: 'admin'
+          }}
+          variables={{
             company: 'Demo Penguin',
             role: 'Demo'
           }}
+          devMode={false}
         >
-          <NuqsAdapter>
-            <Providers session={session}>
-              <Toaster />
-              {children}
-            </Providers>
-          </NuqsAdapter>
+          <Providers session={session}>
+            <Toaster />
+            {children}
+          </Providers>
         </DemoPenguin>
       </body>
     </html>
